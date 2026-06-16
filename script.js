@@ -1,24 +1,27 @@
 // --- CONFIGURACIÓN DE DATOS ---
 const baseDePlanes = [
-    { titulo: "PELI EN CASA", mood: ["relax", "romantico"], lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: "chill", link: "https://letterboxd.com/itsrosario/list/pelis-para-ver-de-toti-y-ro/" },
-    { titulo: "ARCADE", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "intermedio"},
-    { titulo: "POOL", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "intermedio"},
-    { titulo: "PICNIC", mood: "romantico", lugar: "salimos", momento: "dia", clima: "lindo", ritmo: "chill"},
-    { titulo: "PIZZAS CASERAS", mood: "divertido", lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: "intermedio"},
-    { titulo: "MERIENDA", mood: ["relax", "romantico"], lugar: "salimos", momento: "dia", clima: "lindo", ritmo: "chill", link: "https://maps.app.goo.gl/J3e6VySy9CcV4G7L7" },
-    { titulo: "PINTAR", mood: "divertido", lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: "cualquiera"},
-    { titulo: "MARATÓN DE JUEGOS", mood: ["divertido", "relax"], lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: "cualquiera", link: "#" },
-    { titulo: "BAR HOPPING", mood: "divertido", lugar: "salimos", momento: "noche", clima: "lindo", ritmo: "movido"},
+    { titulo: "PELI EN CASA", mood: ["relax", "romantico"], lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: "chill", link: "https://letterboxd.com/itsrosario/list/pelis-para-ver-de-toti-y-ro/" },
+    { titulo: "ARCADE", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "cualquiera"},
+    { titulo: "SALIMOS E IMPROVISAMOS", mood: "romantico", lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo:  ["movido", "intermedio"]},
+    { titulo: "POOL", mood: "divertido", lugar: "salimos", momento: "cualquiera", clima: "cualquiera", ritmo: "cualquiera"},
+    { titulo: "PICNIC", mood: ["divertido", "romantico"], lugar: "salimos", momento: "dia", clima: "lindo", ritmo: "chill"},
+    { titulo: "MATES", mood: ["divertido", "romantico"], lugar: "salimos", momento: "dia", clima: "lindo", ritmo: "chill"},
+    { titulo: "PIZZAS CASERAS", mood: ["divertido", "romantico"], lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: "intermedio"},
+    { titulo: "MERIENDA", mood: ["relax", "romantico"], lugar: "salimos", momento: "dia", clima: "cualquiera", ritmo: "chill", link: "https://maps.app.goo.gl/J3e6VySy9CcV4G7L7" },
+    { titulo: "PINTAR", mood: ["relax", "divertido"], lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: "chill"},
+    { titulo: "MARATÓN DE JUEGOS", mood: ["divertido", "relax"], lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: ["chill", "intermedio"], link: "#" },
+    { titulo: "BAR HOPPING", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo:  ["movido", "intermedio"]},
     { titulo: "CAMINATA", mood: ["relax", "romantico"], lugar: "salimos", momento: "dia", clima: "lindo", ritmo: "cualquiera"},
     { titulo: "COLOURHUNT", mood: "divertido", lugar: "salimos", momento: "dia", clima: "lindo", ritmo: ["chill", "intermedio"]},
     { titulo: "CINE", mood: "cualquiera", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["chill", "intermedio"], link: "https://www.todoshowcase.com/?gad_source=1&gad_campaignid=22796287662&gbraid=0AAAAACzC-vWg4kkkO02IiATgabAo1NwcS&gclid=Cj0KCQjw2_TQBhCnARIsAF3-XhzT7RkkfIamrmGopqap9IeSoPPeX-k1oaxS7KQpEVwpbn0oaynUeaIaAigfEALw_wcB#dropdown_films" },
-    { titulo: "MUSEO", mood: "relax", lugar: "salimos", momento: "dia", clima: "lindo", ritmo: ["chill", "intermedio"]},
+    { titulo: "MUSEO", mood: ["relax", "romantico"], lugar: "salimos", momento: "dia", clima: "cualquiera", ritmo: ["chill", "intermedio"]},
     { titulo: "MUSICA EN BAR", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["movido", "intermedio"], link: "https://www.instagram.com/planaxia/" },
-    { titulo: "NOCHE DE CITA", mood: "romantico", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "cualquiera", link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
-    { titulo: "NOCHE DE TRAGOS", mood: "romantico", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "cualquiera", link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
+    { titulo: "NOCHE DE CITA", mood: ["relax", "romantico"], lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "cualquiera", link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
+    { titulo: "NOCHE DE TRAGOS", mood: ["relax", "romantico"], lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["chill", "intermedio"], link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
     { titulo: "CITA EN CASA", mood: "romantico", lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: ["movido", "intermedio"]},
-    { titulo: "KARAOKE", mood: "divertido", lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: "movido", link: "#" },
-    { titulo: "PASTAS... ¿CASERAS?", mood: "relax", lugar: "casa", momento: "cualquiera", clima: "frio", ritmo: "chill"}
+    { titulo: "KARAOKE", mood: ["divertido"], lugar: "casa", momento: "cualquiera", clima: "cualquiera", ritmo: ["movido", "intermedio"], link: "https://youtube.com/playlist?list=PLBB3fNnV-D0Y&si=KWXt9kUYaoDDly2o" },
+    { titulo: "PASTAS... ¿CASERAS?", mood: "relax", lugar: "casa", momento: "cualquiera", clima: "frio", ritmo: "intermedio"},
+    { titulo: "HELADITO", mood: ["relax", "romantico"], lugar: "salimos", momento: "cualquiera", clima: "lindo", ritmo: ["chill", "intermedio"]}
 ];
 
 const preguntas = [
@@ -142,9 +145,21 @@ function calcularPlan() {
         
     } else {
         contenedor.classList.add('mision-error'); 
+        
+        let mensajeAlternativo = "";
+        
+        if (respuestasUsuario.momento === "dia") {
+            // Mensaje si no hay plan y es de día
+            mensajeAlternativo = "¿un paseito? ¿jardinería? me agarras desprevenida"; 
+        } else {
+            // Mensaje original si no hay plan y es de noche (o cualquier otra cosa)
+            mensajeAlternativo = "¿vinito y mimos? 7u7";
+        }
+
+        // 2. Inyectamos el HTML con la variable del mensaje
         contenedor.innerHTML = `
             <div class="alerta-sistema rojo">>> ERROR: PLAN NOT FOUND <<</div>
-            <h2 class="titulo-glitch titulo-chico"> vinito y mimos? </h2>
+            <h2 class="titulo-glitch titulo-chico"> ${mensajeAlternativo} </h2>
         `;
     }
 }

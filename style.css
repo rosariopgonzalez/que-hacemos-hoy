@@ -164,12 +164,6 @@ body {
     border-radius: 8px;
 }
 
-.btn-reboot:hover {
-    box-shadow: 0 0 20px #ff003c, 0 0 40px #ff003c;
-    color: #fff;
-    border-color: #fff;
-}
-
 /* --- BARRA DE CARGA --- */
 .barra-carga {
     width: 100%;
@@ -261,14 +255,6 @@ body {
     border-radius: 8px;
 }
 
-.btn-opciones:hover {
-    box-shadow: 0 0 15px #00ffaa, 0 0 30px #00ffaa; 
-    text-shadow: 0 0 5px #fff;
-    border-color: #fff;
-    color: #fff;
-    background: rgba(0, 255, 170, 0.1);
-}
-
 /* Esto aplica solo a pantallas de menos de 600px (celulares) */
 @media (max-width: 600px) {
     body {
@@ -329,4 +315,42 @@ body {
     }
 }
 
+/* --- EFECTOS HOVER ( para PC) --- */
+@media (hover: hover) and (pointer: fine) {
+    .btn-neon:hover {
+        box-shadow: 0 0 20px #b026ff, 0 0 40px #b026ff;
+        text-shadow: 0 0 5px #fff;
+        border-color: #fff;
+        color: #fff;
+    }
 
+    .btn-reboot:hover {
+        box-shadow: 0 0 20px #ff003c, 0 0 40px #ff003c;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .btn-opciones:hover {
+        box-shadow: 0 0 15px #00ffaa, 0 0 30px #00ffaa;
+        text-shadow: 0 0 5px #fff;
+        border-color: #fff;
+        color: #fff;
+        background: rgba(0, 255, 170, 0.1);
+    }
+}
+
+/* --- EFECTOS DE TOQUE (para celulares) --- */
+.btn-neon:active {
+    box-shadow: 0 0 15px #b026ff;
+    background: rgba(176, 38, 255, 0.2);
+}
+
+.btn-reboot:active {
+    box-shadow: 0 0 15px #ff003c;
+    background: rgba(255, 0, 60, 0.2);
+}
+
+.btn-opciones:active {
+    box-shadow: 0 0 15px #00ffaa;
+    background: rgba(0, 255, 170, 0.2);
+}

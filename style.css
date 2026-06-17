@@ -3,7 +3,7 @@
     --bg-centro: #160a21;
     --bg-borde: #05020a;
     
-    /* Colores Neón */
+    /* Colores neón */
     --neon-violeta: #b026ff;
     --neon-rojo: #ff003c;
     --texto-claro: #f0e6ff;
@@ -18,7 +18,7 @@ body {
     touch-action: manipulation;
 }
 
-/* --- ESTRUCTURA Y PANTALLAS --- */
+/*  ESTRUCTURA Y PANTALLAS  */
 .pantalla {
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@ body {
     z-index: -1;
 }
 
-/* --- TÍTULOS Y TEXTOS --- */
+/*  TÍTULOS Y TEXTOS  */
 .titulo-glitch {
     font-family: 'Orbitron', sans-serif;
     font-size: 4rem;
@@ -115,7 +115,7 @@ body {
     text-align: center;
 }
 
-/* --- GLASSMORPHISM CAJAS --- */
+/*  GLASSMORPHISM CAJAS  */
 .caja-modal {
     background: rgba(10, 10, 20, 0.85);
     backdrop-filter: blur(10px);
@@ -130,7 +130,7 @@ body {
     box-sizing: border-box;
 }
 
-/* --- BOTONES --- */
+/*  BOTONES  */
 .btn-neon {
     background: transparent;
     border: 1px solid #b026ff;
@@ -159,7 +159,7 @@ body {
     white-space: nowrap;
 }
 
-/* --- BARRA DE CARGA --- */
+/*  BARRA DE CARGA  */
 .barra-carga {
     width: 100%;
     max-width: 400px;
@@ -183,7 +183,7 @@ body {
     0% { width: 0%; }
     100% { width: 100%; }
 }
-/* ---   ESTÉTICA "MISSION PASSED" / ALERTA NASA   --- */
+/* "MISSION PASSED" / ALERTA NASA */
 
 #contenido-resultado.mision-exito {
     border-color: #00ffaa !important;
@@ -222,7 +222,7 @@ body {
     100% { opacity: 0.3; }
 }
 
-/* --- ACHICAR EL TÍTULO --- */
+/*  ACHICAR EL TÍTULO  */
 .titulo-glitch.titulo-chico {
     font-size: 1.5rem !important; 
     margin: 10px 0 30px 0 !important;
@@ -251,56 +251,66 @@ body {
     border-radius: 8px;
 }
 
+/*  DISEÑO MÓVIL  */
 @media (max-width: 768px) {
     body {
         font-size: 14px; 
-        padding: 10px;
+    }
+
+    .pantalla {
+        padding: 0 20px; 
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .titulo-glitch {
+        font-size: 2.2rem !important; 
+        line-height: 1.2;
     }
 
     .caja-modal {
-        width: 95%;           
+        width: 100%;         
         max-width: 500px;     
         margin: 20px auto;    
-        padding: 20px 10px;   
+        padding: 25px 15px; 
         box-sizing: border-box;
     }
 
     .barra-carga, .progreso {
-        width: 90%;
+        width: 100%;
         max-width: 500px;
     }
 
     .btn-neon, .btn-reboot {
-        width: 95%; 
-        max-width: 350px;
+        width: fit-content !important; 
+        display: inline-block;
         font-size: 0.9rem; 
-        padding: 12px 10px; 
-        margin: 10px auto;
-        display: block;
+        padding: 12px 25px; 
+        margin: 15px auto;
     }
 
     .alerta-sistema {
         width: 100%;
-        max-width: 100%;
         font-size: 0.75rem; 
         letter-spacing: 2px; 
     }
 
-    h1 {
-        font-size: 2rem !important; 
-    }
-
     #contenido-resultado {
-        width: 95% !important;
-        padding: 20px 10px !important;
+        width: 100% !important; 
+        max-width: 400px !important;
+        padding: 30px 20px !important;
+        box-sizing: border-box !important;
+        margin: 0 auto;
     }
 
     #contenido-resultado h2 {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important; 
+        word-wrap: break-word; 
+        white-space: normal !important; 
     }
 }
 
-/* --- EFECTOS HOVER ( para PC) --- */
+/* EFECTOS HOVER (pc) */
 @media (hover: hover) and (pointer: fine) {
     .btn-neon:hover {
         box-shadow: 0 0 20px #b026ff, 0 0 40px #b026ff;
@@ -324,7 +334,7 @@ body {
     }
 }
 
-/* --- EFECTOS DE TOQUE (para celulares) --- */
+/*  EFECTOS DE TOQUE (celulares)*/ 
 .btn-neon:active {
     box-shadow: 0 0 15px #b026ff;
     background: rgba(176, 38, 255, 0.2);

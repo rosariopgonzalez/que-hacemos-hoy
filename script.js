@@ -149,14 +149,11 @@ function calcularPlan() {
         let mensajeAlternativo = "";
         
         if (respuestasUsuario.momento === "dia") {
-            // Mensaje si no hay plan y es de día
-            mensajeAlternativo = "¿un paseito? ¿jardinería? me agarras desprevenida"; 
+            mensajeAlternativo = "¿un paseito? me agarras desprevenida"; 
         } else {
-            // Mensaje original si no hay plan y es de noche (o cualquier otra cosa)
-            mensajeAlternativo = "¿vinito y mimos? 7u7";
+            mensajeAlternativo = "¿vinito y mimos?";
         }
 
-        // 2. Inyectamos el HTML con la variable del mensaje
         contenedor.innerHTML = `
             <div class="alerta-sistema rojo">>> ERROR: NO HAY PLAN <<</div>
             <h2 class="titulo-glitch titulo-chico"> ${mensajeAlternativo} </h2>
@@ -164,7 +161,7 @@ function calcularPlan() {
     }
 }
 
-// --- CONFIGURACIÓN DE PARTICLES ---
+// --- CONFIGURACIÓN DE PARTICULAS FONDO ---
 window.onload = function() {
     particlesJS("particles-js", {
         "particles": {

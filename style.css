@@ -281,12 +281,13 @@ body {
         box-sizing: border-box;
     }
 
-    .barra-carga, .progreso {
-        width: 100%;
-        max-width: 500px;
+    .barra-carga {
+        width: 60% !important; 
+        max-width: 250px;
+        margin: 30px auto; 
     }
 
-    .btn-neon, .btn-reboot {
+    #pantalla-preguntas .btn-neon {
         display: block; 
         width: 100% !important; 
         box-sizing: border-box;
@@ -294,6 +295,21 @@ body {
         padding: 12px 10px; 
         margin: 12px 0; 
         white-space: nowrap; 
+    }
+
+    #pantalla-inicio .btn-neon {
+        width: fit-content !important; 
+        display: inline-block;
+        padding: 12px 30px; 
+        margin: 20px auto;
+    }
+
+    .btn-reboot {
+        width: fit-content !important; 
+        display: inline-block;
+        padding: 12px 30px;
+        margin: 50px auto 20px auto !important; 
+        font-size: 0.85rem;
     }
 
     .alerta-sistema {

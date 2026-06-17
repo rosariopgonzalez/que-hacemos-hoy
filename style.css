@@ -9,6 +9,13 @@
     --texto-claro: #f0e6ff;
 }
 
+/* --- ESCUDO ANTI-ZOOM --- */
+html, body {
+    overflow-x: hidden; 
+    width: 100%;
+    max-width: 100vw;
+}
+
 body {
     background-color: #050505;
     margin: 0;
@@ -18,7 +25,7 @@ body {
     touch-action: manipulation;
 }
 
-/*  ESTRUCTURA Y PANTALLAS  */
+/* --- ESTRUCTURA Y PANTALLAS --- */
 .pantalla {
     display: flex;
     flex-direction: column;
@@ -44,7 +51,7 @@ body {
     z-index: -1;
 }
 
-/*  TÍTULOS Y TEXTOS  */
+/* --- TÍTULOS Y TEXTOS --- */
 .titulo-glitch {
     font-family: 'Orbitron', sans-serif;
     font-size: 4rem;
@@ -72,9 +79,7 @@ body {
     color: #f0e6ff;
     text-transform: uppercase; 
     letter-spacing: 2px;      
-    
     text-align: center; 
-    
     text-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
 }
 
@@ -88,7 +93,7 @@ body {
     margin: 0;
     height: auto;       
     padding: 45px 25px; 
-    gap: 20px;
+    box-sizing: border-box;
 }
 
 .pantalla-resultado h2 { 
@@ -115,7 +120,7 @@ body {
     text-align: center;
 }
 
-/*  GLASSMORPHISM CAJAS  */
+/* --- GLASSMORPHISM CAJAS --- */
 .caja-modal {
     background: rgba(10, 10, 20, 0.85);
     backdrop-filter: blur(10px);
@@ -130,7 +135,7 @@ body {
     box-sizing: border-box;
 }
 
-/*  BOTONES  */
+/* --- BOTONES --- */
 .btn-neon {
     background: transparent;
     border: 1px solid #b026ff;
@@ -159,7 +164,7 @@ body {
     white-space: nowrap;
 }
 
-/*  BARRA DE CARGA  */
+/* --- BARRA DE CARGA --- */
 .barra-carga {
     width: 100%;
     max-width: 400px;
@@ -183,8 +188,8 @@ body {
     0% { width: 0%; }
     100% { width: 100%; }
 }
-/* "MISSION PASSED" / ALERTA NASA */
 
+/* --- "MISSION PASSED" / ALERTA NASA --- */
 #contenido-resultado.mision-exito {
     border-color: #00ffaa !important;
     box-shadow: 0 0 30px rgba(0, 255, 170, 0.4), inset 0 0 15px rgba(0, 255, 170, 0.1) !important;
@@ -197,20 +202,22 @@ body {
 
 #contenido-resultado {
     max-width: 600px !important; 
-    padding: 40px  !important; 
+    padding: 40px !important; 
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: center;
     text-align: center;
     margin: 0 auto; 
+    gap: 10px; 
+    height: auto; 
 }
 
 .alerta-sistema {
     font-family: 'Space Grotesk', monospace;
     font-size: 0.85rem;
     letter-spacing: 4px;
-    margin-bottom: 15px;
+    margin-bottom: 5px; 
     animation: parpadeo-alerta 1.5s infinite alternate;
     white-space: nowrap;
 }
@@ -222,10 +229,10 @@ body {
     100% { opacity: 0.3; }
 }
 
-/*  ACHICAR EL TÍTULO  */
+/* --- ACHICAR EL TÍTULO --- */
 .titulo-glitch.titulo-chico {
     font-size: 1.5rem !important; 
-    margin: 10px 0 30px 0 !important;
+    margin: 10px 0 20px 0 !important;
     line-height: 1.3;
 }
 
@@ -251,28 +258,26 @@ body {
     border-radius: 8px;
 }
 
-/*  DISEÑO MÓVIL  */
+/* DISEÑO MÓVIL */
 @media (max-width: 768px) {
     body {
         font-size: 14px; 
     }
 
     .pantalla {
-        padding: 0 20px; 
+        padding: 0; 
         box-sizing: border-box;
         width: 100%;
     }
 
-    .titulo-glitch {
-        font-size: 2.2rem !important; 
-        line-height: 1.2;
-    }
+    .titulo-glitch { font-size: 1.8rem !important; line-height: 1.2; }
+    #texto-pregunta { font-size: 1.3rem !important; }
 
     .caja-modal {
-        width: 100%;         
-        max-width: 500px;     
-        margin: 20px auto;    
-        padding: 25px 15px; 
+        width: 85%; 
+        max-width: 400px;     
+        margin: 0 auto;    
+        padding: 30px 20px; 
         box-sizing: border-box;
     }
 
@@ -282,21 +287,24 @@ body {
     }
 
     .btn-neon, .btn-reboot {
-        width: fit-content !important; 
-        display: inline-block;
-        font-size: 0.9rem; 
-        padding: 12px 25px; 
-        margin: 15px auto;
+        display: block; 
+        width: 100% !important; 
+        box-sizing: border-box;
+        font-size: 0.85rem; 
+        padding: 12px 10px; 
+        margin: 12px 0; 
+        white-space: nowrap; 
     }
 
     .alerta-sistema {
         width: 100%;
-        font-size: 0.75rem; 
+        font-size: 0.95rem; 
         letter-spacing: 2px; 
+        margin-bottom: 15px; 
     }
 
     #contenido-resultado {
-        width: 100% !important; 
+        width: 85% !important; 
         max-width: 400px !important;
         padding: 30px 20px !important;
         box-sizing: border-box !important;
@@ -304,13 +312,13 @@ body {
     }
 
     #contenido-resultado h2 {
-        font-size: 1.5rem !important; 
+        font-size: 1.4rem !important; 
         word-wrap: break-word; 
         white-space: normal !important; 
     }
 }
 
-/* EFECTOS HOVER (pc) */
+/* EFECTOS HOVER (pc)  */
 @media (hover: hover) and (pointer: fine) {
     .btn-neon:hover {
         box-shadow: 0 0 20px #b026ff, 0 0 40px #b026ff;
@@ -334,7 +342,7 @@ body {
     }
 }
 
-/*  EFECTOS DE TOQUE (celulares)*/ 
+/* EFECTOS DE TOQUE (celulares) */
 .btn-neon:active {
     box-shadow: 0 0 15px #b026ff;
     background: rgba(176, 38, 255, 0.2);

@@ -81,7 +81,9 @@ function mostrarSiguientePregunta() {
 function registrarRespuesta(categoria, valor) {
     respuestasUsuario[categoria] = valor;
     indiceActual++;
-    (indiceActual < preguntas.length) ? mostrarSiguientePregunta() : procesarResultados();
+    setTimeout(() => {
+        (indiceActual < preguntas.length) ? mostrarSiguientePregunta() : procesarResultados();
+    }, 150);
 }
 
 function procesarResultados() {

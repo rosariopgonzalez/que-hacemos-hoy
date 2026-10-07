@@ -376,3 +376,119 @@ body {
     background: rgba(0, 255, 170, 0.2);
     transition: none !important;
 }
+
+/* --- BOTÓN DISCRETO (PANTALLA DE INICIO) --- */
+.btn-discreto {
+    margin-top: 50px; 
+    background: transparent;
+    border: 1px solid #00f3ff; /* Celeste/Cyan */
+    color: #00f3ff;
+    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem; /* Más chico y sutil */
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border-radius: 8px;
+    letter-spacing: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-discreto:hover {
+        box-shadow: 0 0 10px #00f3ff;
+        color: #fff;
+        border-color: #fff;
+        background: rgba(0, 243, 255, 0.1);
+    }
+}
+
+.btn-discreto:active {
+    box-shadow: 0 0 10px #00f3ff;
+    background: rgba(0, 243, 255, 0.2);
+    transition: none !important;
+}
+
+/* --- ESTILOS CYBERPUNK PARA LOS FILTROS --- */
+.filtros-directorio {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.select-cyber {
+    padding: 10px 15px;
+    background: rgba(10, 10, 20, 0.8); /* Mantiene el tono de las cajas modales */
+    color: #f0e6ff;
+    border: 1px solid #b026ff;
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: inset 0 0 5px rgba(176, 38, 255, 0.2);
+}
+
+.select-cyber:focus {
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+/* --- SCROLLBAR CYBERPUNK --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05050a; /* Fondo muy oscuro, casi negro */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(176, 38, 255, 0.5); /* Violeta con transparencia */
+    border-radius: 10px;
+    border: 1px solid #b026ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(176, 38, 255, 0.8);
+    box-shadow: 0 0 10px #b026ff;
+}
+
+/* --- GRILLA DE FILTROS --- */
+.grilla-filtros {
+    display: grid;
+    /* Crea columnas automáticas que no se achican a menos de 130px */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    justify-items: center;
+}
+
+/* Ajuste al select para que ocupe todo su espacio en la grilla */
+.select-cyber {
+    width: 100%;
+    padding: 10px;
+    background: rgba(10, 10, 20, 0.8);
+    color: #f0e6ff;
+    border: 1px solid #b026ff;
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: inset 0 0 5px rgba(176, 38, 255, 0.2);
+    /* Para que el texto largo no rompa el diseño */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.select-cyber:focus {
+    border-color: #00f3ff;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}

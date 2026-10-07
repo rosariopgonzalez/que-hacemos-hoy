@@ -18,6 +18,7 @@
             <h1 class="titulo-glitch">¿QUÉ HACEMOS HOY?</h1> 
              <div class="animacion-arcade"></div> 
             <button class="btn-neon btn-grande" onclick="iniciar()">AVERIGUAR</button>
+            <button class="btn-discreto" onclick="abrirDirectorio()">VER TODOS LOS PLANES</button>
         </div>
 
         <div id="pantalla-preguntas" class="pantalla oculto">
@@ -40,6 +41,55 @@
         <div id="pantalla-resultado" class="pantalla oculto">
             <div class="caja-modal" id="contenido-resultado"></div>
             <button onclick="reboot()" class="btn-reboot mt-20">[ REINICIAR SISTEMA ]</button>
+        </div>
+        
+        <!-- NUEVA PANTALLA: DIRECTORIO DE PLANES -->
+        <div id="pantalla-directorio" class="pantalla oculto">
+            <div class="caja-modal" style="max-width: 90%; width: 600px; max-height: 85vh; overflow-y: auto;">
+                <h2 class="texto-cyber" style="margin-bottom: 20px;">DIRECTORIO DE PLANES</h2>
+                
+                <!-- LOS FILTROS -->
+                <div class="grilla-filtros">
+                    <select id="filtro-mood" onchange="filtrarDirectorio()" class="select-cyber">
+                        <option value="todos">Mood: Todos</option>
+                        <option value="romantico">Romántico</option>
+                        <option value="divertido">Divertido</option>
+                        <option value="relax">Relax</option>
+                    </select>
+                                
+                    <select id="filtro-lugar" onchange="filtrarDirectorio()" class="select-cyber">
+                        <option value="todos">Lugar: Todos</option>
+                        <option value="casa">En Casa</option>
+                        <option value="salimos">Salimos</option>
+                    </select>
+                                
+                    <select id="filtro-momento" onchange="filtrarDirectorio()" class="select-cyber">
+                        <option value="todos">Momento: Todos</option>
+                        <option value="dia">De Día</option>
+                        <option value="noche">De Noche</option>
+                    </select>
+
+                    <select id="filtro-clima" onchange="filtrarDirectorio()" class="select-cyber">
+                        <option value="todos">Clima: Todos</option>
+                        <option value="lindo">Está Lindo</option>
+                        <option value="frio">Fresco / Llueve</option>
+                    </select>
+
+                    <select id="filtro-ritmo" onchange="filtrarDirectorio()" class="select-cyber">
+                        <option value="todos">Ritmo: Todos</option>
+                        <option value="chill">Chill</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="movido">Movido</option>
+                    </select>
+                </div>
+
+                <!-- CONTENEDOR DE LA LISTA -->
+                <div id="lista-planes-directorio" style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
+                    <!-- Los planes se inyectan acá por JS -->
+                </div>
+                
+                <button onclick="cerrarDirectorio()" class="btn-reboot mt-20" style="margin-top: 30px;">[ VOLVER AL INICIO ]</button>
+            </div>
         </div>
         
     </div>

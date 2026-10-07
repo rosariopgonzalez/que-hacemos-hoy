@@ -16,6 +16,8 @@ const baseDePlanes = [
     { titulo: "CINE", mood: "cualquiera", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["chill", "intermedio"], link: "https://www.todoshowcase.com/?gad_source=1&gad_campaignid=22796287662&gbraid=0AAAAACzC-vWg4kkkO02IiATgabAo1NwcS&gclid=Cj0KCQjw2_TQBhCnARIsAF3-XhzT7RkkfIamrmGopqap9IeSoPPeX-k1oaxS7KQpEVwpbn0oaynUeaIaAigfEALw_wcB#dropdown_films" },
     { titulo: "MUSEO", mood: ["relax", "romantico"], lugar: "salimos", momento: "dia", clima: "cualquiera", ritmo: ["chill", "intermedio"]},
     { titulo: "MUSICA EN BAR", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["movido", "intermedio"], link: "https://www.instagram.com/planaxia/" },
+    { titulo: "MICROTEATRO", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["movido", "intermedio"]},
+    { titulo: "SALA DE ESCAPE", mood: "divertido", lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "movido"},
     { titulo: "NOCHE DE CITA", mood: ["relax", "romantico"], lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: "cualquiera", link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
     { titulo: "NOCHE DE TRAGOS", mood: ["relax", "romantico"], lugar: "salimos", momento: "noche", clima: "cualquiera", ritmo: ["chill", "intermedio"], link: "https://maps.app.goo.gl/NcRzZewcsDjHNrP19" },
     { titulo: "CITA EN CASA", mood: "romantico", lugar: "casa", momento: "noche", clima: "cualquiera", ritmo: ["movido", "intermedio"]},
@@ -161,6 +163,86 @@ function calcularPlan() {
             <h2 class="titulo-glitch titulo-chico"> ${mensajeAlternativo} </h2>
         `;
     }
+}
+
+// ==========================================
+// --- LÓGICA DEL DIRECTORIO DE PLANES ---
+// ==========================================
+
+function abrirDirectorio() {
+    cambiarPantalla('pantalla-inicio', 'pantalla-directorio');
+    
+    // Reseteamos los selectores a "todos" cada vez que entramos
+    document.getElementById('filtro-clima').value = 'todos';
+    document.getElementById('filtro-mood').value = 'todos';
+    document.getElementById('filtro-lugar').value = 'todos';
+    
+    // Ejecutamos el filtro inicial (para que muestre todos los planes al entrar)
+    filtrarDirectorio(); 
+}
+
+function cerrarDirectorio() {
+    cambiarPantalla('pantalla-directorio', 'pantalla-inicio');
+}
+
+function filtrarDirectorio() {
+    // 1. Capturamos qué quiere el usuario en los filtros
+    const filtros = {
+        clima: document.getElementById('filtro-clima').value,
+        mood: document.getElementById('filtro-mood').value,
+        lugar: document.getElementById('filtro-lugar').value,
+        momento: document.getElementById('filtro-momento').value,
+        ritmo: document.getElementById('filtro-ritmo').value
+    };
+
+    // 2. Colamos la base de datos entera
+    const planesFiltrados = baseDePlanes.filter(p => {
+        let cumple = true;
+        
+        for (const key in filtros) {
+            if (filtros[key] !== 'todos') {
+                const valorPlan = p[key];
+                // Chequeamos si coincide, si es el comodín "cualquiera", o si está dentro de un array
+                const coincide = valorPlan === filtros[key] || valorPlan === 'cualquiera' || (Array.isArray(valorPlan) && valorPlan.includes(filtros[key]));
+                
+                if (!coincide) {
+                    cumple = false; // Si falla en al menos una categoría, lo descartamos
+                }
+            }
+        }
+        return cumple;
+    });
+
+    // 3. Pintamos el resultado en pantalla
+    const contenedor = document.getElementById('lista-planes-directorio');
+    contenedor.innerHTML = ''; // Limpiamos la lista anterior
+
+    if (planesFiltrados.length === 0) {
+        contenedor.innerHTML = '<div class="alerta-sistema rojo" style="text-align:center;">>>> NO HAY PLANES CON ESA COMBINACIÓN_</div>';
+        return;
+    }
+
+    // 4. Creamos las "tarjetitas" para los que sobrevivieron al filtro
+    planesFiltrados.forEach(plan => {
+        
+        // Estructura de la tarjeta (SIN el párrafo de etiquetas)
+        let htmlPlan = `
+            <div style="border: 1px solid rgba(0, 243, 255, 0.3); padding: 15px; border-radius: 8px; background: rgba(0,0,0,0.5); transition: 0.3s; margin-bottom: 10px;">
+                <h3 style="margin: 0 0 10px 0; color: #fff; text-shadow: 0 0 5px var(--neon-cyan, #00f3ff); font-family: 'Orbitron', sans-serif;">${plan.titulo}</h3>
+        `;
+        
+        // Si tiene link, le agregamos el botón
+        if (plan.link && plan.link !== "" && plan.link !== "#") {
+            htmlPlan += `
+                <a href="${plan.link}" target="_blank" style="display: inline-block; padding: 6px 12px; border: 1px solid #b026ff; color: #b026ff; text-decoration: none; border-radius: 4px; font-size: 0.8rem; font-family: 'Orbitron', sans-serif; text-transform: uppercase; transition: all 0.3s ease;">
+                    [ VER OPCIONES ]
+                </a>
+            `;
+        }
+        
+        htmlPlan += `</div>`;
+        contenedor.innerHTML += htmlPlan;
+    });
 }
 
 // --- CONFIGURACIÓN DE PARTICULAS FONDO ---
